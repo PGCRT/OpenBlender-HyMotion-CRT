@@ -1,8 +1,7 @@
 """
 OpenBlender-HyMotion-CRT
 
-Text-to-Motion generation with FBX/GLB export support, plus the OpenBlender
-environment Checker node used by the Diagnose workflow.
+Text-to-Motion generation with FBX/GLB export support.
 
 Based on ComfyUI-HY-Motion1 (jtydhr88 / PozzettiAndrea repack).
 """
@@ -32,14 +31,11 @@ if not os.environ.get('PYTEST_CURRENT_TEST'):
     try:
         from .nodes import NODE_CLASS_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS
         from .bridge_nodes import HYMotionNPZToSMPLParams, HYMotionSMPLToData, HYMotionRetargetFBX as BridgeRetargetFBX
-        from .checker_nodes import NODE_CLASS_MAPPINGS as _CHECKER_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS as _CHECKER_DISPLAY
         NODE_CLASS_MAPPINGS.update({
             "HYMotionNPZToSMPLParams": HYMotionNPZToSMPLParams,
             "HYMotionSMPLToData": HYMotionSMPLToData,
             "HYMotionRetargetFBX": BridgeRetargetFBX,
         })
-        NODE_CLASS_MAPPINGS.update(_CHECKER_MAPPINGS)
-        NODE_DISPLAY_NAME_MAPPINGS.update(_CHECKER_DISPLAY)
         NODE_DISPLAY_NAME_MAPPINGS.update({
             "HYMotionNPZToSMPLParams": "HY-Motion NPZ to SMPL Params",
             "HYMotionSMPLToData": "HY-Motion SMPL to Data",

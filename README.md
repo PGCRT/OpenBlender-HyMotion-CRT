@@ -5,9 +5,6 @@ Standalone ComfyUI custom node for [OpenBlender](https://github.com/PGCRT), base
 [ComfyUI-HY-Motion1](https://github.com/jtydhr88/ComfyUI-HY-Motion1) for text-to-3D human
 motion generation.
 
-Also ships the `OpenBlenderChecker` node used by OpenBlender's Environment_Checker
-(Diagnose) workflow — pure stdlib, no extra dependencies.
-
 Runs entirely in the main ComfyUI environment: no isolated pixi envs, no
 flash-attn/sage-attn wheels; uses ComfyUI's native attention stack.
 
