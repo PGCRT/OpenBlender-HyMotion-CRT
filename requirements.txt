@@ -1,14 +1,16 @@
+--extra-index-url https://gitlab.inria.fr/api/v4/projects/18692/packages/pypi/simple
+
+fbxsdkpy==2020.1.post2
+torchdiffeq>=0.2.5
+transforms3d>=0.4.2
+omegaconf>=2.3.0
+accelerate>=0.30.0
+huggingface_hub>=0.30.0
+bitsandbytes>=0.42.0
 torch
 numpy
 einops
 scipy
 transformers>=4.56.0
-accelerate>=0.30.0
-huggingface_hub>=0.30.0
-bitsandbytes>=0.42.0
 safetensors
-fbxsdkpy==2020.1.post2
-torchdiffeq>=0.2.5
-transforms3d>=0.4.2
-omegaconf>=2.3.0
 aiohttp
