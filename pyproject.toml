@@ -1,0 +1,16 @@
+[project]
+name = "openblender-hymotion-crt"
+description = "OpenBlender HyMotion (CRT): text-to-3D human motion generation with FBX/GLB export, plus the OpenBlender environment Checker node."
+version = "0.4.0"
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["fbxsdkpy==2020.1.post2", "torchdiffeq>=0.2.5", "transforms3d>=0.4.2", "omegaconf>=2.3.0", "accelerate>=0.30.0", "huggingface_hub>=0.30.0", "bitsandbytes>=0.42.0", "einops", "scipy", "transformers>=4.56.0"]
+
+[project.urls]
+Repository = "https://github.com/PGCRT/OpenBlender-HyMotion-CRT"
+
+[tool.comfy]
+PublisherId = "PGCRT"
+DisplayName = "OpenBlender HyMotion (CRT)"
+Icon = ""
