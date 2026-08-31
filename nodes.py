@@ -426,7 +426,9 @@ class HYMotionLoadLLM:
             load_kwargs["device_map"] = "cpu"
             load_kwargs["torch_dtype"] = torch.float32
         elif quantization == "int8":
-            load_kwargs["quantization_config"] = BitsAndBytesConfig(load_in_8bit=True)
+            load_kwargs["quantization_config"] = BitsAndBytesConfig(
+                load_in_8bit=True, llm_int8_enable_fp32_cpu_offload=True
+            )
             load_kwargs["device_map"] = "auto"
         elif quantization == "int4":
             load_kwargs["quantization_config"] = BitsAndBytesConfig(
@@ -434,15 +436,18 @@ class HYMotionLoadLLM:
                 bnb_4bit_compute_dtype=torch.float16,
                 bnb_4bit_use_double_quant=True,
                 bnb_4bit_quant_type="nf4",
+                llm_int8_enable_fp32_cpu_offload=True,
             )
             load_kwargs["device_map"] = "auto"
         elif quantization == "bnb-4bit":
-            # For bnb-4bit models
+            # For bnb-4bit models. enable_fp32_cpu_offload lets low-VRAM GPUs
+            # spill remaining layers to CPU as fp32 instead of raising.
             load_kwargs["quantization_config"] = BitsAndBytesConfig(
                 load_in_4bit=True,
                 bnb_4bit_compute_dtype=torch.float16,
                 bnb_4bit_use_double_quant=True,
                 bnb_4bit_quant_type="nf4",
+                llm_int8_enable_fp32_cpu_offload=True,
             )
             load_kwargs["device_map"] = "auto"
         elif quantization == "awq":
